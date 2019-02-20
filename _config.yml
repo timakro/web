@@ -1,0 +1,46 @@
+# Permalinks
+permalink:           /:title/
+
+# Setup
+title:               timakro.de
+url:                 https://timakro.de
+
+# Assets
+#
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          _sass
+  style:             compressed
+
+feed:
+  path:              feed/index.xml
+
+# About/contact
+author:
+  name:              Tim Schumacher
+  email:             tim@timakro.de
+
+# Collections
+collections:
+  tags:
+    output: true
+
+# Front Matter Defaults
+defaults:
+  - scope:
+      type: "posts"
+    values:
+      author: "Tim Schumacher"
+      layout: "post"
+  - scope:
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      type: "tags"
+    values:
+      layout: "tag"
+
+# Auto open new drafts/posts
+jekyll_compose:
+  auto_open: true

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+
+  <body>
+    <div class="container content">
+      <nav class="navigation">
+        <h3><a href="/">{{ site.title }}</a></h3>
+        <a href="/feed/">/feed</a>
+        <a href="/archive/">/archive</a>
+        {%- comment %}<a href="/software">/software</a>{% endcomment %}
+        {%- comment %}<a href="/me">/me</a>{% endcomment %}
+      </nav>
+
+      <main>
+        {{ content }}
+      </main>
+    </div>
+  </body>
+
+</html>

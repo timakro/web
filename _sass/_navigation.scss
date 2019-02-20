@@ -1,0 +1,18 @@
+// Navigation
+
+.navigation {
+  padding-top:    1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  color: #9a9a9a;
+
+  h3 {
+    display: inline;
+    color:  $gray-4;
+  }
+
+  a {
+    margin-right: 1.25rem;
+    color: inherit;
+  }
+}

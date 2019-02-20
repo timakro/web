@@ -1,0 +1,19 @@
+{%- assign post = include.post -%}
+
+<div class="post-meta">
+  <div class="post-date-author">
+    <time datetime="{{ post.date | date_to_xmlschema }}">
+      {{ post.date | date: "%Y-%m-%d" }}
+    </time>
+    &middot; {{ post.author }}
+  </div>
+
+  {%- if post.tags.size %}
+    <div class="post-tags">
+      {%- for tag_name in post.tags -%}
+        {% assign tag = site.tags | where: 'name', tag_name | first %}
+        <a href="{{ tag.url }}" class="post-tag">{{ tag_name | upcase }}</a>
+      {%- endfor %}
+    </div>
+  {% endif -%}
+</div>

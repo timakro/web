@@ -1,0 +1,31 @@
+---
+layout: default
+title: Archive
+---
+
+<article>
+  <h1 class="collection-title">ARCHIVE</h1>
+
+  <div class="collection">
+    {% for post in site.posts %}
+      {%- assign current_date = post.date | date: "%Y" -%}
+      {% if current_date != date %}
+        {%- unless forloop.first %}</ul>{% endunless %}
+        <h3 id="{{ current_date }}">{{ current_date }}</h3>
+        <ul class="post-collection">
+        {% assign date = current_date %}
+      {% endif -%}
+      <li>
+        <a href="{{ post.url }}">
+          {{ post.title | smartify }}
+          <small><time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%Y-%m-%d" }}
+          </time></small>
+        </a>
+      </li>
+      {% if forloop.last %}
+        </ul>
+      {% endif %}
+    {% endfor %}
+  </div>
+</article>
