@@ -85,14 +85,14 @@
     {% endif %}
 
     {% capture new_heading %}
-      <h{{ _hAttrToStrip }}
-        {{ include.bodyPrefix }}
+<h{{ _hAttrToStrip }}
+        {{- include.bodyPrefix -}}
         {% if beforeHeading %}
-          {{ anchor }}{{ header }}
+          {{- anchor }}{{ header -}}
         {% else %}
-          {{ header }}{{ anchor }}
+          {{- header }}{{ anchor -}}
         {% endif %}
-        {{ include.bodySuffix }}
+        {{- include.bodySuffix -}}
       </h{{ _workspace | last }}
     {% endcapture %}
     {% capture edited_headings %}{{ edited_headings }}{{ new_heading }}{% endcapture %}
