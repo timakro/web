@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'jekyll'
+gem 'classifier-reborn' # Used for quality related posts
 
 group :jekyll_plugins do
   gem 'jekyll-feed'
