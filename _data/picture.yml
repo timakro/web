@@ -1,0 +1,10 @@
+media_presets:
+  mobile: "max-width: 607px"
+
+markup_presets:
+  default:
+    widths: [360, 420, 610, 720]
+    media_widths:
+      mobile: [360, 420, 610]
+    fallback_width: 720
+    link_source: true

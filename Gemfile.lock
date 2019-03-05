@@ -1,3 +1,15 @@
+GIT
+  remote: git@github.com:timakro/jekyll-picture-tag.git
+  revision: 9f890c6cf0fe8cb09406c1a0340e1c573a791d08
+  branch: pr_fix_inaccurate_size
+  specs:
+    jekyll-picture-tag (1.2.0)
+      fastimage (~> 2)
+      jekyll (< 4)
+      mime-types (~> 3)
+      mini_magick (~> 4)
+      objective_elements (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -9,6 +21,7 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7)
+    fastimage (2.1.5)
     ffi (1.10.0)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
@@ -46,6 +59,11 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
     mercenary (0.3.6)
+    mime-types (3.2.2)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2018.0812)
+    mini_magick (4.9.3)
+    objective_elements (1.1.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (3.0.3)
@@ -68,6 +86,7 @@ DEPENDENCIES
   jekyll
   jekyll-compose
   jekyll-feed
+  jekyll-picture-tag!
   jekyll-seo-tag
   jekyll-sitemap
 

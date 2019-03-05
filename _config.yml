@@ -1,5 +1,5 @@
 # Permalinks
-permalink:           /:title/
+permalink:           /blog/:title/
 
 # Setup
 title:               timakro.de
@@ -40,6 +40,10 @@ defaults:
       type: "tags"
     values:
       layout: "tag"
+
+# Jekyll Picture Tag Source Directory
+picture:
+  source: "public"
 
 # Auto open new drafts/posts
 jekyll_compose:
