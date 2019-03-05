@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:timakro/jekyll-picture-tag.git
+  remote: https://github.com/timakro/jekyll-picture-tag
   revision: 9f890c6cf0fe8cb09406c1a0340e1c573a791d08
   branch: pr_fix_inaccurate_size
   specs:
