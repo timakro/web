@@ -266,7 +266,7 @@ You can find the complete source code on [GitHub](https://github.com/timakro/stm
 
 If I ever get to writing the next post, we will learn how to use the [CMSIS](https://developer.arm.com/embedded/cmsis) library. It defines pointers with meaningful names for the registeres we saw in this article, so we don't have to hardcode all the addresses. And it provides functions for properly timed delay so we can get rid of the for loops which lack a fixed delay.
 
-You can leave comments on [Hacker News](). I'd be happy about any feedback and corrections.
+You can leave comments on [Hacker News](https://news.ycombinator.com/item?id=19314076). I'd be happy about any feedback and corrections.
 
 <video autoplay loop preload>
   <source src="/public/bare-metal-stm32-programming/blinking-led.mp4" type="video/mp4">
