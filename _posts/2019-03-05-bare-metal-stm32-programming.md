@@ -19,7 +19,7 @@ Mine came with two extra motors for replacement, and you can get super cheap rep
 
 {% picture bare-metal-stm32-programming/batteries-and-charger.jpg --alt Batteries and charger %}
 
-So let's get into the technical details of the drone. The chip on the quadcopter is a 32-bit ARM Cortex-M processor with 64 KiB flash memory. On board are a wireless module, a 3-axsis digital compass which detects orientation using the earths magnetic field, an altimeter that measures height by air pressure and an accelerometer and gyro sensor combined into one chip. In this post we will be using the LEDs on one of the 4 arms and most importantly the integrated USB to serial bridge to flash our program. You can get the schematic for the quadcopter [here](https://github.com/Crazepony/crazepony.github.io/blob/master/assets/schemtics/crazepony-fc-shematics.pdf).
+So let's get into the technical details of the drone. The chip on the quadcopter is a 32-bit ARM Cortex-M processor with 64 KiB flash memory. On board are a wireless module, a 3-axis digital compass which detects orientation using the earth's magnetic field, an altimeter that measures height by air pressure and an accelerometer and gyro sensor combined into one chip. In this post we will be using the LEDs on one of the 4 arms and most importantly the integrated USB to serial bridge to flash our program. You can get the schematic for the quadcopter [here](https://github.com/Crazepony/crazepony.github.io/blob/master/assets/schemtics/crazepony-fc-shematics.pdf).
 
 ## The bootloader
 
