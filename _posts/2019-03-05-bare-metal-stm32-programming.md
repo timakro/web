@@ -178,8 +178,10 @@ To write to the `GPIOA` registers the corresponding clock has to be turned on fi
 So to turn on the `GPIOA` clock we can set the 32 bit value `0x00000004` (bit 2 set) at address `0x4002 1018`.
 
 {% highlight c %}
-*(uint32_t *)0x40021018 = 0x00000004;
+*(volatile uint32_t *)0x40021018 = 0x00000004;
 {% endhighlight %}
+
+The `volatile` keyword tells the compiler that the value may change at any time because it's accessed by other hardware. Without the keyword the compiler could notice that the value is never used by any of our code and optimize the line away. Thanks to [dmitrygr](https://news.ycombinator.com/item?id=19315732) for pointing this out in the comments.
 
 ### Port configuration register
 
@@ -212,8 +214,8 @@ We want to configure the pin as an output and the frequency doesn't matter for a
 So the four bits we need for the pin are `0010`. In hexadecimal the four bits of a pin are one digit. Because we don't want to touch the other pins configuration settings we first clear the four bits of pin `PA11` and then set them using a binary or.
 
 {% highlight c %}
-*(uint32_t *)0x40010804 &= 0xFFFF0FFF;
-*(uint32_t *)0x40010804 |= 0x00002000;
+*(volatile uint32_t *)0x40010804 &= 0xFFFF0FFF;
+*(volatile uint32_t *)0x40010804 |= 0x00002000;
 {% endhighlight %}
 
 ### Port bit set/reset registers
@@ -226,13 +228,13 @@ Finally, to turn on the pin, there is the *`GPIOA` port bit set/reset register* 
 > 1: Set the corresponding ODRx bit
 
 {% highlight c %}
-*(uint32_t *)0x40010810 = (1<<11);
+*(volatile uint32_t *)0x40010810 = (1<<11);
 {% endhighlight %}
 
 For turning it off you can use the *`GPIOA` port bit reset register* at `0x4001 0814`.
 
 {% highlight c %}
-*(uint32_t *)0x40010814 = (1<<11);
+*(volatile uint32_t *)0x40010814 = (1<<11);
 {% endhighlight %}
 
 ## Putting it all together
@@ -245,16 +247,16 @@ Here is the complete `main.c` program to turn the `PA11` pin on and off. The `st
 void main ()
 {
     // Enable I/O port A clock
-    *(uint32_t *)0x40021018 = 0x00000004;
+    *(volatile uint32_t *)0x40021018 = 0x00000004;
 
     // Configure pin 11 as push-pull output
-    *(uint32_t *)0x40010804 &= 0xFFFF0FFF;
-    *(uint32_t *)0x40010804 |= 0x00002000;
+    *(volatile uint32_t *)0x40010804 &= 0xFFFF0FFF;
+    *(volatile uint32_t *)0x40010804 |= 0x00002000;
 
     while (1) {
-        *(uint32_t *)0x40010810 = (1<<11); // Set pin 11
+        *(volatile uint32_t *)0x40010810 = (1<<11); // Set pin 11
         for (int i = 0; i < 1000000; i++);
-        *(uint32_t *)0x40010814 = (1<<11); // Unset pin 11
+        *(volatile uint32_t *)0x40010814 = (1<<11); // Unset pin 11
         for (int i = 0; i < 1000000; i++);
     }
 }
