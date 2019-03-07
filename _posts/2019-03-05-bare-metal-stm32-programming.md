@@ -56,7 +56,7 @@ $ ls /dev | grep USB
 ttyUSB0
 {% endhighlight %}
 
-We will use the [stm32loader](https://github.com/jsnyder/stm32loader) Python script to upload our program. A normal user can't write to `/dev/ttyUSB0` so you either need to run it as root or add your user to the `dialout` group which gives a user access to the serial ports. You might need to relog afterwards.
+We will use the [stm32loader](https://github.com/jsnyder/stm32loader) Python script to upload our program. A normal user can't write to `/dev/ttyUSB0` so you either need to run it as root or add your user to the `dialout` group which gives a user access to the serial ports. You might need to login again afterwards.
 
 {% highlight bash %}
 sudo adduser tim dialout
@@ -154,7 +154,7 @@ If everything compiled without errors you can now flash your first firmware and 
 ./stm32loader.py -p /dev/ttyUSB0 -ewv main.bin
 {% endhighlight %}
 
-If everything went right *nothing* should happend, hurray!
+If everything went right *nothing* should happen, hurray!
 
 ## Controlling output pins
 
