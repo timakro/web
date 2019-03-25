@@ -39,3 +39,5 @@ Ensure the *Magisk Hide* option is enabled in the Magisk Manager settings, then 
 ## Conclusion
 
 If you rely on a rooted phone you might be able to trick your banking app using Magisk. I also like that the app gives me control over the apps that have root permissions and there is a way to turn off the pop-ups when an app uses root which I found annoying. Unfornately this doesn't work for every banking app but as a last resort you can always get an extra device like the ChipTAN generator.
+
+Comments on [HackerNews](https://news.ycombinator.com/item?id=19483952).
