@@ -44,7 +44,3 @@ defaults:
 # Jekyll Picture Tag Source Directory
 picture:
   source: "public"
-
-# Auto open new drafts/posts
-jekyll_compose:
-  auto_open: true
