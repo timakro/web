@@ -152,4 +152,4 @@ My script to start the virtual machine also turns off the screen on the host so 
 
 I am super pleased with my PCI passthrough setup. Apart from the initial effort it took to configure the VM no issues arised from the virtualization. I have finished The Witcher 3 on my new system in beautiful 60 frames per second and played a bunch of other games without issues. When I want to play an online game with a friend I run TeamSpeak on Linux and keep my tabs open on the host while starting the virtual machine. Goodbye dual-booting!
 
-You can leave comments on [HackerNews](https://news.ycombinator.com/item?id=19849809) and [Reddit](https://www.reddit.com/r/VFIO/comments/bmp4cl/my_windows_gaming_virtual_machine_setup/). As an Arch newbie I'd be happy about your tips!
+You can leave comments on [Hacker News](https://news.ycombinator.com/item?id=19849809) and [Reddit](https://www.reddit.com/r/VFIO/comments/bmp4cl/my_windows_gaming_virtual_machine_setup/). As an Arch newbie I'd be happy about your tips!
