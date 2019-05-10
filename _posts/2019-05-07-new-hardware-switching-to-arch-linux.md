@@ -34,7 +34,7 @@ The [Arch User Repository](https://aur.archlinux.org/) hosts unofficial Arch pac
 
 Long story short, an additional repository which requires an additional package manager feels impractical when you're coming from Debian. I looked through the different AUR helpers with their numerous advantages and disadvantages and decided for [Yay](https://github.com/Jguer/yay). It seems like the easiest to use and it can even hide the separation between AUR and non-AUR packages which purists don't like.
 
-Installing any package, official or not, is achieved with `yay -S PACKAGE` and upgrading works by `yay -Syu`. Just like [pacman](https://wiki.archlinux.org/index.php/Pacman).
+Installing any package, official or not, is achieved with `yay -S PACKAGE` and upgrading works by `yay -Syu`. Just like pacman.
 
 ### Fonts
 
