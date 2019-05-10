@@ -123,7 +123,7 @@ I followed the excellent [guide](https://wiki.archlinux.org/index.php/PCI_passth
 
 ### Configuration
 
-For the disk driver I use SCSI (virtio-scsi) instead of the older VirtIO (virtio-blk) because it supports the discard feature (also known as TRIM). Adding the following line to the disk tag in the VM config makes the Qcow2 image shrink when the guest OS uses discard and thus prevents the image from slowly growing bigger.
+For the disk driver I use SCSI (virtio-scsi) instead of the older VirtIO (virtio-blk) because it supports the discard feature (also known as TRIM). Since QEMU 4.0 which was released recently virtio-blk supports discard too as pointed out in a [comment by Marc1n](https://www.reddit.com/r/VFIO/comments/bmp4cl/my_windows_gaming_virtual_machine_setup/en0c5rl/). Adding the following line to the disk tag in the VM config makes the Qcow2 image shrink when the guest OS uses discard and thus prevents the image from slowly growing bigger.
 
 {% highlight xml %}
 <driver name='qemu' type='qcow2' discard='unmap'/>
