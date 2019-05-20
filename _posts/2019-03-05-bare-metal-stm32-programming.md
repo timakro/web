@@ -56,7 +56,7 @@ $ ls /dev | grep USB
 ttyUSB0
 {% endhighlight %}
 
-We will use the [stm32loader](https://github.com/jsnyder/stm32loader) Python script to upload our program. A normal user can't write to `/dev/ttyUSB0` so you either need to run it as root or add your user to the `dialout` group which gives a user access to the serial ports. You might need to login again afterwards.
+We will use the [stm32loader](https://github.com/jsnyder/stm32loader) Python script to upload our program. It requires the [pySerial](https://pythonhosted.org/pyserial/) library. A normal user can't write to `/dev/ttyUSB0` so you either need to run it as root or add your user to the `dialout` or `uucp` group depending on your distro which gives a user access to the serial ports. You might need to login again afterwards. If you are having issues with the script on Arch Linux consider trying [my patch](https://github.com/timakro/stm32-quadcopter/commit/693d90b8d5c5718913f91700d757576b4af217ee).
 
 {% highlight bash %}
 sudo adduser tim dialout
@@ -127,7 +127,7 @@ Now that we have a C program, the startup assembly code and the linker script re
 
 ## Compiling for the STM32
 
-To compile for ARM processors you can get the GNU ARM toolchain. It provides a C compiler `arm-none-eabi-gcc`, a linker `arm-none-eabi-ld`, etc. to cross-compile for ARM. On Debian the package is called `gcc-arm-none-eabi`.
+To compile for ARM processors you can get the GNU ARM toolchain. It provides a C compiler `arm-none-eabi-gcc`, a linker `arm-none-eabi-ld`, etc. to cross-compile for ARM. On Debian the package is called `gcc-arm-none-eabi` and on Arch Linux you need the packages `arm-none-eabi-gcc` and `arm-none-eabi-newlib`.
 
 First we compile the assembly and C code to object files. The `-mcpu=cortex-m3` and `-mthumb` flags are required for the C compiler to compile for STM32 processors.
 
