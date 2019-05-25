@@ -3,14 +3,14 @@ layout: default
 ---
 
 <article>
-  <h1 class="collection-title">{{ page.name | upcase }}</h1>
+  <h1 class="page-title">{{ page.title }} Posts</h1>
 
   {{ content }}
 
   <div class="collection">
     <ul class="post-collection">
       {% for post in site.posts %}
-        {%- if post.tags contains page.name %}
+        {%- if post.tags contains page.title %}
           <li>
             <a href="{{ post.url }}">
               {{ post.title | smartify }}

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: New Hardware, Switching to Arch Linux and PCI Passthrough for Gaming
-tags: hardware sysadmin gaming
+tags: Hardware Sysadmin Gaming
 ---
 
 While playing The Witcher 3 on my old dual-boot system I realized that it was time for an upgrade. I would take this opportunity and try [Arch Linux](https://www.archlinux.org/) after all my life with Debian and also [PCI passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) which sounded very exciting. Running Windows in a virtual machine is a viable alternative to dual-booting when you can pass through your graphics card with virtually native performance (pun intended).
@@ -129,7 +129,7 @@ For the disk driver I use SCSI (virtio-scsi) instead of the older VirtIO (virtio
 <driver name='qemu' type='qcow2' discard='unmap'/>
 {% endhighlight %}
 
-This works as long as TRIM is configured on the guest but Windows 10 seems to have continous TRIM enabled by default. Removing a big file on my Windows VM makes the image file---which is a sparse file of course---shrink. Because the image is stored on my ext4 formatted SSD I also run a periodic TRIM service on the host system. The rsync command can copy sparse files with the `--sparse` flag so reducing the image size really saves backup time.
+This works as long as TRIM is configured on the guest but Windows 10 seems to have continous TRIM enabled by default. Removing a big file on my Windows VM makes the sparse image file shrink. Because the image is stored on my ext4 formatted SSD I also run a periodic TRIM service on the host system. The rsync command can copy sparse files with the `--sparse` flag so reducing the image size really saves backup time.
 
 I also configured [CPU pinning](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#CPU_pinning) and simply assigned each of my 6 cores to a virtual core, my processor has no hyperthreading. For some reason I had to check *Manually set CPU topology* in the virt-manager. It kept messing up the topology telling the guest system I had 6 CPUs with 1 core each. First I thought I had a serious performance issue because Windows does only use two CPUs at maximum which meant the VM was only using two cores.
 

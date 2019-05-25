@@ -1,6 +1,6 @@
 ---
 title: Bare Metal STM32 Programming and a Quadcopters Awakening
-tags: programming
+tags: Programming
 ---
 
 Last year I got the [Crazepony Mini](http://www.crazepony.com/products/mini.html) quadcopter, and just recently I figured out how to program it. I will show my progress in this post, and it will also serve as a getting started guide for programming STM32 microcontrollers. We will build a minimal working example to blink an LED with only the GNU ARM compiler (gcc) and without any library dependencies.

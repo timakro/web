@@ -27,12 +27,6 @@
 .post-title {
   margin-top: 0;
 }
-.collection-title {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #eee;
-  color: #9a9a9a;
-}
 
 // Meta data line below post title
 .post-meta {
@@ -76,8 +70,7 @@
     }
 
     a:hover {
-      color: #268bd2;
-      text-decoration: none;
+      color: $link-color;
 
       small {
         color: inherit;

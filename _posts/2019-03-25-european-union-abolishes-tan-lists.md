@@ -1,7 +1,7 @@
 ---
 layout: post
 title: European Union Abolishes TAN Lists and Banking Apps on Rooted Phones Ridiculousness
-tags: smartphone sysadmin
+tags: Smartphone Sysadmin
 ---
 
 When I logged into my online banking today I was greeted by an unexpected page. TAN lists on paper no longer work and I was asked to choose between the TAN app of my bank and the so called ChipTAN method popular in Germany. I remembered somebody told me that many banking apps refuse to work on rooted phones, so I mentally prepared for the worst. This is a summary of how I run my banks TAN app on my rooted Android using the open-source rooting tool [Magisk](https://github.com/topjohnwu/Magisk).
