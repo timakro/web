@@ -11,6 +11,16 @@ This is an ongoing project since 2014. A community all around the platformer gam
 
 {% picture software/unique-clan.png --alt Unique Clan %}
 
+<h3 class="date-section">2019</h3>
+
+## Teeworlds Machine Learning Project
+
+The hype around AI, machine learning and deep neural networks is real. Do you just throw this technology at a real problem and get impressive results? No. I fell for the hype and tried to apply reinforcement learning to the 2D platformer & shooter [Teeworlds](https://www.teeworlds.com/), the results were awful. The process and ideas behind the project are still intersting.
+
+Watch a 5 minute video over at [YouTube](https://youtu.be/sJ6R6zFMhE4) for a little bit of insight. The code with a short analysis of what might have went wrong is on [GitHub](https://github.com/timakro/tmlp). If you want to take a look, maybe there is still hope for the project after all.
+
+{% picture software/tmlp.png mobile: software/tmlp-mobile.png --alt TMLP agent vision %}
+
 <h3 class="date-section">2018</h3>
 
 ## superfsmon
@@ -59,6 +69,6 @@ The source code is maintained on [GitHub](https://github.com/timakro/ddnet-trash
 
 Robot built with the [Lego Mindstorms EV3](https://en.wikipedia.org/wiki/Lego_Mindstorms_EV3) robitics kit and programmed with the [python-ev3](https://github.com/topikachu/python-ev3) library moving wooden discs around to solve Towers of Hanoi.
 
-You can watch a video of the robot in action on [YouTube](https://www.youtube.com/watch?v=mgyLTcA3iis).
+You can watch a video of the robot in action on [YouTube](https://youtu.be/8ocxnWipQDw).
 
 {% picture software/towers-of-hanoi.png --alt Towers of Hanoi robot %}
