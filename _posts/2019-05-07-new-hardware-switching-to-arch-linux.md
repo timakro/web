@@ -14,7 +14,7 @@ Besides being able to run current video games at max graphics settings I chose m
 
 I went for an Intel processor with integrated graphics for my host system when the Windows guest is using my GPU. I settled on the Intel Core i5-9600K processor, the i5 series seems still cheaper in this performance range and it supports the required virtualization features.
 
-My mainboard is a standard ATX board, the ASRock Z370 Pro4 has two PCIEx16 slots and four DDR4 slots, for now I got two 8 GB RAM sticks and left two slots free for future expansion. The board has HDMI and DVI-D ports for integrated graphics. I connect the HDMI to my main screen and the DVI-D to my small secondary screen which doesn't have HDMI. The board also has Bluetooth and WLAN which I might need in my new room when I move out from home. As a bonus I can overclock my processor if I ever want to do that.
+My mainboard is a standard ATX board, the ASRock Z370 Pro4 has two PCIEx16 slots and four DDR4 slots, for now I've got two 8 GB RAM sticks and left two slots free for future expansion. (Update: I expanded my RAM to 32 GB because I was unhappy with the amount of RAM I could dedicate to my VM before the host started swapping.) The board has HDMI and DVI-D ports for integrated graphics. I connect the HDMI to my main screen and the DVI-D to my small secondary screen which doesn't have HDMI. As a bonus I can overclock my processor if I ever want to do that.
 
 Because I want to try the new hottest thing called ray tracing I got the Gigabyte GeForce RTX 2060 Windforce OC GPU. It has 6 GB of video RAM and the custom design runs at 1770 MHz in comparison to the founders edition with 1680 MHz.
 
@@ -22,7 +22,7 @@ For storage I went with three 2 TB hard drives two of which I cycle for backups.
 
 ## Arch adventures
 
-I had my eyes on the Arch Linux distribution for a while now. First I discovered Arch by it's [phenomenal wiki](https://wiki.archlinux.org/). Over time I became to use Debian like Arch. Making the Debian installation procedure work with my uncommon partition layout and window manager, hacking the initramfs or installing a newer version of Firefox with the Quantum engine. I decided instead of switching to Debian testing or unstable I would try Arch Linux, and here we are. I followed the [instructions on PCI passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) from the Arch wiki without having to worry about differences on Debian. And having the newest software already paid off because they fixed some nasty audio crackling issues in the newest QEMU versions.
+I had my eyes on the Arch Linux distribution for a while now. First I discovered Arch by it's [phenomenal wiki](https://wiki.archlinux.org/). Over time I started using Debian like Arch. Making the Debian installation procedure work with my uncommon partition layout and window manager, hacking the initramfs or installing a newer version of Firefox with the Quantum engine. I decided instead of switching to Debian testing or unstable I would try Arch Linux. I followed the [instructions on PCI passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF) from the Arch wiki without having to worry about differences on Debian. And having the newest software already paid off because they fixed some nasty audio crackling issues in the newest QEMU versions.
 
 I was initially worried about the effort it would take to maintain a system with rolling releases i.e. how much would break and require manual fixing. A glance at the Arch news alleviated my concerns and today after nearly two months I can say that I only had one tiny issue which was dead easy to fix. My window manager wasn't starting after a shared library upgrade because it is manually compiled from the config file.
 
@@ -89,9 +89,11 @@ I always like to know which configuration files I changed so I have two git repo
 
 Categorizing files into multiple git repositories seems tempting especially for the home directory. But what I never liked about [vcsh](https://github.com/RichiH/vcsh) or [etckeeper](http://etckeeper.branchable.com/) is that they are specific to a particular path. The dream would be to have a set of config files to check out on remote machines but that might be just fantasy. It's a different system, the config manager won't be there and different versions might require different config files. I doubt this would ever just work.
 
+Update: I use [vcsh](https://github.com/RichiH/vcsh) for my home directory now. My `public-dotfiles` repository contains my Vim config, `.zshrc`, etc. and  and I clone it to most of the remote systems I work on. There were some issues I had to overcome to make this work. For example my Git config refers to my PGP key for commit signing which is not installed on every remote system. Fortunately the Vim configuration allows you to include additional config files. So I include my PGP specific settings as an additional config files which is only present on the systems which have my key installed.
+
 ### Disk encryption
 
-On my old system the entire disk was encrpyted. This time I just encrypt the home partition and add a PAM configuration to hook into the login process and unlock the cryptsetup container. This means I have to type my password just once. The script at `/usr/local/lib/mount-home` will be called from the PAM config.
+On my old system the entire disk was encrypted. This time I just encrypt the home partition and add a PAM configuration to hook into the login process and unlock the cryptsetup container. This means I have to type my password just once. The script at `/usr/local/lib/mount-home` will be called from the PAM config.
 
 {% highlight bash %}
 #!/bin/sh
@@ -133,9 +135,11 @@ This works as long as TRIM is configured on the guest but Windows 10 seems to ha
 
 I also configured [CPU pinning](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#CPU_pinning) and simply assigned each of my 6 cores to a virtual core, my processor has no hyperthreading. For some reason I had to check *Manually set CPU topology* in the virt-manager. It kept messing up the topology telling the guest system I had 6 CPUs with 1 core each. First I thought I had a serious performance issue because Windows does only use two CPUs at maximum which meant the VM was only using two cores.
 
-My keyboard and mouse can be switched between guest and host by pressing both CTRL keys at once as [explained on the Arch wiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Passing_keyboard/mouse_via_Evdev). When I configured the [guest sound to be passed to PulseAudio](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Passing_VM_audio_to_host_via_PulseAudio) I needed to change the QEMU user and group to my own user. To keep the keyboard and mouse switching working you need to add your user to the `input` group. When passing the sound to PulseAudio the VM sound appears as a separate application in the pavucontrol mixer. Though especially in older QEMU versions there are bad audio cackling issues. In QEMU 3.0 they are not completely gone but they are extremly rare and subtle now.
+My keyboard and mouse can be switched between guest and host by pressing both CTRL keys at once as [explained on the Arch wiki](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Passing_keyboard/mouse_via_Evdev). When I configured the [guest sound to be passed to PulseAudio](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF#Passing_VM_audio_to_host_via_PulseAudio) I needed to change the QEMU user and group to my own user. To keep the keyboard and mouse switching working you need to add your user to the `input` group. When passing the sound to PulseAudio the VM sound appears as a separate application in the pavucontrol mixer. Though especially on older QEMU versions there are bad audio cackling issues. In QEMU 3.0 they are not completely gone but they are extremly rare and subtle now.
 
 For the network I use the MacVTap driver because it's supposed to have less CPU impact on the host.
+
+Update: Because the MacVTap driver doesn't support communication between host and guest I specified a [manually created bridge](https://wiki.archlinux.org/index.php/Network_bridge#Creating_a_bridge) for the VM to use. This allowed me to set up a [Samba](https://www.samba.org/) server on the host to transfer files between host and guest.
 
 I briefly explained my screen setup above. Both of my screens are connected to the integrated graphics used by the host and only my main screen is connected to the GPU used by the guest. I set up some xrandr bindings in my window manager to disable and enable my main screen for the host.
 
