@@ -69,6 +69,6 @@ The source code is maintained on [GitHub](https://github.com/timakro/ddnet-trash
 
 Robot built with the [Lego Mindstorms EV3](https://en.wikipedia.org/wiki/Lego_Mindstorms_EV3) robitics kit and programmed with the [python-ev3](https://github.com/topikachu/python-ev3) library moving wooden discs around to solve Towers of Hanoi.
 
-You can watch a video of the robot in action on [YouTube](https://youtu.be/8ocxnWipQDw).
+You can watch a video of the robot in action on [YouTube](https://youtu.be/mgyLTcA3iis).
 
 {% picture software/towers-of-hanoi.png --alt Towers of Hanoi robot %}
