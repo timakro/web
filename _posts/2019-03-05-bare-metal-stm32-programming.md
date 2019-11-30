@@ -1,6 +1,6 @@
 ---
 title: Bare Metal STM32 Programming and a Quadcopters Awakening
-tags: Programming
+tags: Quadcopter Programming
 ---
 
 Last year I got the [Crazepony Mini](http://www.crazepony.com/products/mini.html) quadcopter, and just recently I figured out how to program it. I will show my progress in this post, and it will also serve as a getting started guide for programming STM32 microcontrollers. We will build a minimal working example to blink an LED with only the GNU ARM compiler (gcc) and without any library dependencies.
@@ -239,7 +239,7 @@ For turning it off you can use the *`GPIOA` port bit reset register* at `0x4001 
 
 ## Putting it all together
 
-Here is the complete `main.c` program to turn the `PA11` pin on and off. The `stdint.h` header is required for the `uint32_t` type. A for loop is used as a simple way to get some delay.
+Here is the complete `main.c` program to turn the `PA11` pin on and off. The `stdint.h` header is required for the `uint32_t` type. A for-loop is used as a simple way to get some delay.
 
 {% highlight c %}
 #include <stdint.h>
@@ -266,7 +266,7 @@ Once you've adjusted everything for your board compile it and flash it. If every
 
 You can find the complete source code on [GitHub](https://github.com/timakro/stm32-quadcopter/tree/master/blink_minimal), including a Makefile. All the manuals quoted in this post can also be found in the repository.
 
-If I ever get to writing the next post, we will learn how to use the [CMSIS](https://developer.arm.com/embedded/cmsis) library. It defines pointers with meaningful names for the registeres we saw in this article, so we don't have to hardcode all the addresses. And it provides functions for properly timed delay so we can get rid of the for loops which lack a fixed delay.
+In the [next post](/blog/quadcopter-programming-part-2/), we will learn how to use the [CMSIS](https://developer.arm.com/embedded/cmsis) library. It defines pointers with meaningful names for the registeres we saw in this article, so we don't have to hardcode all the addresses. And it provides functions for properly timed delay so we can get rid of the for-loops which lack a fixed delay.
 
 You can leave comments on [Hacker News](https://news.ycombinator.com/item?id=19314076). I'd be happy about any feedback and corrections.
 
