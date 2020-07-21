@@ -154,7 +154,7 @@ void main (void)
 
     // Configure pin 11 as push-pull output
     GPIOA->CRH &= ~(GPIO_CRH_MODE11 | GPIO_CRH_CNF11);
-    GPIOA->CRH |= GPIO_CRH_MODE11;
+    GPIOA->CRH |= GPIO_CRH_MODE11_1;
 
     while (1) {
         GPIOA->BSRR = (1<<11); // Set pin 11
@@ -240,7 +240,7 @@ void main (void)
 
     // Configure pin 11 as push-pull output
     GPIOA->CRH &= ~(GPIO_CRH_MODE11 | GPIO_CRH_CNF11);
-    GPIOA->CRH |= GPIO_CRH_MODE11;
+    GPIOA->CRH |= GPIO_CRH_MODE11_1;
 
     while (1) {
         GPIOA->BSRR = (1<<11); // Set pin 11
@@ -289,16 +289,16 @@ void main (void)
     RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
 
     GPIOA->CRH &= ~(GPIO_CRH_MODE11 | GPIO_CRH_CNF11);
-    GPIOA->CRH |= GPIO_CRH_MODE11;
+    GPIOA->CRH |= GPIO_CRH_MODE11_1;
 
     GPIOA->CRH &= ~(GPIO_CRH_MODE8 | GPIO_CRH_CNF8);
-    GPIOA->CRH |= GPIO_CRH_MODE8;
+    GPIOA->CRH |= GPIO_CRH_MODE8_1;
 
     GPIOB->CRL &= ~(GPIO_CRL_MODE1 | GPIO_CRL_CNF1);
-    GPIOB->CRL |= GPIO_CRL_MODE1;
+    GPIOB->CRL |= GPIO_CRL_MODE1_1;
 
     GPIOB->CRL &= ~(GPIO_CRL_MODE3 | GPIO_CRL_CNF3);
-    GPIOB->CRL |= GPIO_CRL_MODE3;
+    GPIOB->CRL |= GPIO_CRL_MODE3_1;
 
     while (1) {
         GPIOA->BSRR = (1<<11);

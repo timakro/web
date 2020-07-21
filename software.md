@@ -3,13 +3,21 @@ layout: software
 title: Software and Projects
 ---
 
-This is a selection of noteworthy and most popular projects I did over the years.
+A selection of software I wrote over the years.
 
 ## Unique Clan
 
-This is an ongoing project since 2014. A community all around the platformer game Teeworlds, you can find more information at the [official website](https://uniqueclan.net/). The Git repositories for the website, the Unique Race modification, and the game servers and database infrastructure can be found on [GitHub](https://github.com/unique-clan).
+This is an ongoing project since 2014. A community all around the platformer game Teeworlds, find out more on the [official website](https://uniqueclan.net/). The source code for the website, game server modifications, scripts and database infrastructure can be found on [GitHub](https://github.com/unique-clan).
 
 {% picture software/unique-clan.png --alt Unique Clan %}
+
+<h3 class="date-section">2020</h3>
+
+## Adobe Digital Editions Dockerized
+
+If you own an e-book reader apart from Amazon's Kindle you have likely encountered Adobe's DRM format. You can't download e-books protected by Adobe's DRM directly from the bookstore. Instead you download a small text file with the ACSM extension which you then feed to the Adobe Digital Editions software to download the actual book. Adobe Digital Editions does fortunately run under Linux using Wine but I don't want to bloat my system with closed source DRM software. This project locks Adobe Digital Editions into a Docker container and fully automizes the process of downloading e-books. You will never have to deal with Adobe Digital Editions again instead just pass the ACSM file to a script on the command line to get your book. Find the project source on [GitHub](https://github.com/timakro/adobe_diged_docker).
+
+After I wrote and tested this on Arch Linux it turned out it doesn't run on Debian 10. I went into this assuming with Docker my project would be fully portable. But one should always keep in mind that Docker containers use the hosts kernel. After I tested it and seen it work on Debian 11 my best guess is that it doesn't work with older kernels.
 
 <h3 class="date-section">2019</h3>
 
@@ -65,7 +73,7 @@ The source code is maintained on [GitHub](https://github.com/timakro/ddnet-trash
 
 <h3 class="date-section">2014</h3>
 
-## Towers of Hanoi robot
+## Towers of Hanoi Robot
 
 Robot built with the [Lego Mindstorms EV3](https://en.wikipedia.org/wiki/Lego_Mindstorms_EV3) robitics kit and programmed with the [python-ev3](https://github.com/topikachu/python-ev3) library moving wooden discs around to solve Towers of Hanoi.
 
