@@ -57,7 +57,7 @@ Installation instructions and the code are on [GitHub](https://github.com/timakr
 
 ## TeeSmash
 
-A mod for the 2D platformer [Teeworlds](https://www.teeworlds.com/), it's inspired by fighting games. I coded this together with my friend [Ryozuki](https://ryozuki.xyz/) in C++.
+A mod for the 2D platformer [Teeworlds](https://www.teeworlds.com/), it's inspired by fighting games. I coded this together with my friend [Edgar](https://edgarluque.com/) in C++.
 
 The code is on [GitHub](https://github.com/timazuki/TeeSmash) and there's a [post](https://www.teeworlds.com/forum/viewtopic.php?id=11878) on the Teeworlds forum. I'm hosting [game servers](https://uniqueclan.net/serverstatus/GER) in Germany and Canada if you'd like you give it a try.
 
